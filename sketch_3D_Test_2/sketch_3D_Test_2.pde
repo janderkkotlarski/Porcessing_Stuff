@@ -15,7 +15,6 @@ void setup()
   pos_z = dimens;
   delpos = 0.1*dimens;
   
-  fill(0, 63, 127);
   noStroke();
  }
 
@@ -81,9 +80,10 @@ void draw()
       {
         if (count_x != 1 || count_y != 1 || count_z != 1)
         {
-          cuboid(0.9*dimens, (2*(count_x - 1))*dimens,
-                (2*(count_y - 1))*dimens,
-                (2*(count_z - 1))*dimens);
+          cuboid(0.5*dimens,
+                (2*(count_x - 1))*dimens + pos_x,
+                (2*(count_y - 1))*dimens + pos_y,
+                (2*(count_z - 1))*dimens + pos_z);
         }
       }
     }
@@ -98,37 +98,29 @@ void cuboid(final float dimenz, final float pos_x,
         beginShape();
           fill(0, 63, 127);
           vertex(pos_x - dimenz, pos_y - dimenz, pos_z - dimenz);
-          fill(127, 0, 63);
           vertex(pos_x + dimenz, pos_y - dimenz, pos_z - dimenz);
-          fill(63, 127, 0);
           vertex(pos_x + dimenz, pos_y + dimenz, pos_z - dimenz);    
-          fill(63, 63, 63);
           vertex(pos_x - dimenz, pos_y + dimenz, pos_z - dimenz);
         endShape();
         
         beginShape();
           fill(127, 0, 63);
           vertex(pos_x - dimenz, pos_y - dimenz, pos_z + dimenz);
-          fill(0, 63, 127);
           vertex(pos_x + dimenz, pos_y - dimenz, pos_z + dimenz);
-          fill(63, 63, 63);
           vertex(pos_x + dimenz, pos_y + dimenz, pos_z + dimenz);    
-          fill(63, 127, 0);
           vertex(pos_x - dimenz, pos_y + dimenz, pos_z + dimenz);
         endShape();
         
         beginShape();
-          fill(63, 63, 63);
-          vertex(pos_x - dimenz, pos_y - dimenz, pos_z + dimenz);
           fill(63, 127, 0);
+          vertex(pos_x - dimenz, pos_y - dimenz, pos_z + dimenz);
           vertex(pos_x + dimenz, pos_y - dimenz, pos_z + dimenz);
-          fill(127, 0, 63);
           vertex(pos_x + dimenz, pos_y - dimenz, pos_z - dimenz);    
-          fill(0, 63, 127);
           vertex(pos_x - dimenz, pos_y - dimenz, pos_z - dimenz);
         endShape();
         
         beginShape();
+          fill(63, 63, 63);
           vertex(pos_x + dimenz, pos_y - dimenz, pos_z + dimenz);
           vertex(pos_x + dimenz, pos_y + dimenz, pos_z + dimenz);
           vertex(pos_x + dimenz, pos_y + dimenz, pos_z - dimenz);    
@@ -136,6 +128,7 @@ void cuboid(final float dimenz, final float pos_x,
         endShape();
         
         beginShape();
+          fill(127, 127, 127);
           vertex(pos_x + dimenz, pos_y + dimenz, pos_z + dimenz);
           vertex(pos_x - dimenz, pos_y + dimenz, pos_z + dimenz);
           vertex(pos_x - dimenz, pos_y + dimenz, pos_z - dimenz);    
@@ -143,6 +136,7 @@ void cuboid(final float dimenz, final float pos_x,
         endShape();
         
         beginShape();
+          fill(191, 191, 191);
           vertex(pos_x - dimenz, pos_y + dimenz, pos_z + dimenz);
           vertex(pos_x - dimenz, pos_y - dimenz, pos_z + dimenz);
           vertex(pos_x - dimenz, pos_y - dimenz, pos_z - dimenz);    
